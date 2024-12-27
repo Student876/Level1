@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 Task 2</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        header {
+            background-color: sienna;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        section {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        button {
+            margin: 10px 0;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: brown;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: cadetblue;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 16px;
+            width: 90%;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Level 1 Task 2: JavaScript Practice</h1>
+    </header>
+
+    <!-- Task 1: Button that changes color -->
+    <section>
+        <h2>Task 1: Color Changing Button</h2>
+        <button id="colorButton" onclick="changeColor()">Click Me</button>
+    </section>
+
+    <!-- Task 2: Alert greeting based on time -->
+    <section>
+        <h2>Task 2: Greeting Message</h2>
+        <button onclick="showGreeting()">Show Greeting</button>
+    </section>
+
+    <!-- Task 3: Simple Calculator -->
+    <section>
+        <h2>Task 3: Simple Calculator</h2>
+        <div class="calculator">
+            <input type="number" id="num1" placeholder="Enter first number">
+            <input type="number" id="num2" placeholder="Enter second number"><br>
+            <button onclick="calculate()">Add</button>
+            <p id="result"></p>
+        </div>
+    </section>
+
+    <script>
+        // Task 1: Change button color
+        function changeColor() {
+            const colors = ['#FF5733', '#33FFBD', '#FF33A6', '#3385FF', '#FFC133', '#85FF33'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('colorButton').style.backgroundColor = randomColor;
+        }
+
+        // Task 2: Show greeting based on time
+        function showGreeting() {
+            const hours = new Date().getHours();
+            let message = '';
+            if (hours < 12) {
+                message = 'Good Morning!';
+            } else if (hours < 18) {
+                message = 'Good Afternoon!';
+            } else {
+                message = 'Good Evening!';
+            }
+            alert(message);
+        }
+
+        // Task 3: Simple calculator
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const sum = num1 + num2;
+
+            if (isNaN(sum)) {
+                document.getElementById('result').textContent = "Please enter valid numbers.";
+            } else {
+                document.getElementById('result').textContent = `Result: ${sum}`;
+            }
+        }
+
+        // Dynamic background color
+        function changeBackgroundColor() {
+            const colors = ['#FFEBEE', '#E8F5E9', '#E3F2FD', '#FFFDE7', '#FBE9E7', '#F3E5F5'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+        setInterval(changeBackgroundColor, 5000);
+    </script>
+</body>
+
+</html>
